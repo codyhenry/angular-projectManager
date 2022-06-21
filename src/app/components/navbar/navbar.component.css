@@ -1,9 +1,9 @@
-.spacer {
-  display: flex;
-  justify-content: space-between;
+.companyName{
+  font-size: 150%;
 }
 
-.nav-container {
-  display: flex;
-  justify-content: space-between;
+.spacer {
+  flex: 1 1 auto;
 }
+
+

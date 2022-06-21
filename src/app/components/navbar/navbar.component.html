@@ -1,16 +1,33 @@
 <mat-toolbar color="primary">
-  <div class="spacer">
-    <h1>{{title}}</h1>
-    <div class="nav-container">
-      <h3>New Board</h3>
-      <h3>Notifications</h3>
-      <h3>Account</h3>
-    </div>
+  <a mat-button class="companyName" routerLink="/">
+    <span>{{title}}</span>
+  </a>
+  <span class="spacer"></span>
+  <div fxShow="true" fxHide.lt-md="true">
+    <a mat-button routerLink="#"><mat-icon>home</mat-icon> Home</a>
+    <!--Make dynamic based on notifications should be component-->
+    <a mat-button routerLink="#"><mat-icon matBadge="0" matBadgeColor="warn" matBadgePosition="before">announcement</mat-icon> Notifications</a>
+    <a mat-button routerLink="#"><mat-icon>space_dashboard</mat-icon> New Board</a>
+    <a mat-button routerLink="#"><mat-icon>account_circle</mat-icon> Account Settings</a>
   </div>
- 
-  
-  <!--make new flex box component-->
-  <!--change to component buttons-->
- 
-  
+
+  <!--show unless screen is greater than small or medium size-->
+  <div fxShow="true" fxHide.gt-sm="true">
+    <button mat-icon-button [matMenuTriggerFor]="mainMenu">
+      <mat-icon aria-label="menu button">menu</mat-icon>
+      <mat-menu #mainMenu="matMenu">
+        <a mat-menu-item routerLink="#">New Board</a>
+        <a mat-menu-item routerLink="#">Notifications</a>
+        <!--TODO: Only show manage team if admin-->
+        <a mat-menu-item routerLink="#"><mat-icon>manage_accounts</mat-icon>Manage Team</a>
+        <a mat-menu-item routerLink="#"><mat-icon>backup_table</mat-icon>My Projects</a>
+        <a mat-menu-item routerLink="#"><mat-icon>pending_actions</mat-icon>My Tasks</a>
+        <button mat-menu-item [matMenuTriggerFor]="account">Account</button>
+      </mat-menu>
+      <mat-menu #account="matMenu">
+        <button mat-menu-item><mat-icon>logout</mat-icon>Logout</button>
+        <a mat-menu-item routerLink="#"><mat-icon>settings</mat-icon>Settings</a>
+      </mat-menu>
+    </button>
+  </div>
 </mat-toolbar>
