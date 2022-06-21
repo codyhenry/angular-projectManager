@@ -1,0 +1,9 @@
+.spacer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+}
