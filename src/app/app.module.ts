@@ -14,9 +14,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BoardComponent } from './components/board/board.component';
-import { BoardCardsComponent } from './components/board-cards/board-cards.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { WorkspaceComponent } from './components/workspace/workspace.component';
+import { BoardBugsComponent } from './components/board-bugs/board-bugs.component';
+import { BoardTasksComponent } from './components/board-tasks/board-tasks.component';
 
 
 @NgModule({
@@ -24,9 +25,10 @@ import { WorkspaceComponent } from './components/workspace/workspace.component';
     AppComponent,
     NavbarComponent,
     BoardComponent,
-    BoardCardsComponent,
     SidenavComponent,
-    WorkspaceComponent
+    WorkspaceComponent,
+    BoardBugsComponent,
+    BoardTasksComponent
   ],
   imports: [
     BrowserModule,

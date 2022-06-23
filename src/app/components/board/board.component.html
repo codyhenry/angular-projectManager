@@ -1,5 +1,16 @@
 <!--
   trello part with bugs and tickets
+  uses board cards as ticket
+  flex: bug column & task column
+  task column flex: row for each category
 -->
-<p>board works!</p>
 
+<div class="board" fxLayout="row"  fxFlexFill>
+  <div class="bug" fxFlex="30%" >
+    <p>bug side</p>
+    <!--TODO: orderby date ascending/descending filterby priority-->
+  </div>
+  <div class="task">
+    <p>task side</p>
+  </div>
+</div>
