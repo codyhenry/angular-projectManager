@@ -1,0 +1,23 @@
+<!--
+  TODO create sidenav and main content to hold cards
+  dashboard home page with analytics 
+  trello part with bugs and tickets
+  sprint part with current and past sprints
+-->
+<!--
+  Member Status:
+  Admin - can invite and remove members can set board public or private can create sprints and assign members to tasks
+  Member - can create and complete tickets can leave boards can accept board invites
+  Guest - can view a board but not edit anything
+-->
+<mat-sidenav-container class="sidenav-container">
+
+  <mat-sidenav #sidenav mode="side" opened fxShow="true" fxHide.lt-md="true" class="sidenav">
+    <app-sidenav></app-sidenav> <!--Start-->
+  </mat-sidenav> 
+
+  <mat-sidenav-content>
+    <app-board></app-board> <!--Main-->
+  </mat-sidenav-content> 
+
+</mat-sidenav-container> 

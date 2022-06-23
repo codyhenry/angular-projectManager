@@ -1,1 +1,25 @@
-<p>sidenav works!</p>
+<!--TODO: get user role on load-->
+<h1>{{userRank}}</h1>
+
+<mat-divider></mat-divider>
+
+<mat-list>
+  <!--Visible based on role-->
+  <mat-list-item>
+    <a routerLink="#"><mat-icon>manage_accounts</mat-icon> Manage Team</a>
+  </mat-list-item>
+  <mat-list-item>
+    <a routerLink="#"><mat-icon>backup_table</mat-icon> My Projects</a>
+  </mat-list-item>
+  <mat-list-item>
+    <a routerLink="#"><mat-icon>pending_actions</mat-icon> My Tasks</a>
+  </mat-list-item>
+</mat-list>
+
+<mat-divider></mat-divider>
+
+<mat-list>
+  <mat-list-item>
+    <a routerLink="#"><mat-icon>arrow_circle_left</mat-icon> Leave Board</a>
+  </mat-list-item>
+</mat-list>

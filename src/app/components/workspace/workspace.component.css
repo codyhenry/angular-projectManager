@@ -1,0 +1,12 @@
+.sidenav-container{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 60px;
+  bottom: 0;
+}
+
+.sidenav{
+  width: 14vw;
+  height: 100%
+}

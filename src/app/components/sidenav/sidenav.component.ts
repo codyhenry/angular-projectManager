@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
+  userRank: string = 'Admin'; //get from db match userId with rank in board
   constructor() { }
 
   ngOnInit(): void {
