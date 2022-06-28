@@ -5,12 +5,32 @@
   task column flex: row for each category
 -->
 
-<div class="board" fxLayout="row"  fxFlexFill>
-  <div class="bug" fxFlex="30%" >
+<div class="board" >
+  <div class="bug" >
     <p>bug side</p>
     <!--TODO: orderby date ascending/descending filterby priority-->
+    <app-board-bugs>
+      <!--
+        TODO: 
+          delete only by admin
+          complete can be done by any member  
+          comments can be done by any member
+          add new can be done by any member
+      -->
+    </app-board-bugs>
   </div>
+  <!--
   <div class="task">
     <p>task side</p>
+    TODO: orderby date ascending/descending filterby priority/assigned dev
+    <app-board-tasks>
+     
+        TODO:
+          delete can only be done by admin
+          complete can only be done by assigned dev
+          
+     
+    </app-board-tasks>
   </div>
+-->
 </div>

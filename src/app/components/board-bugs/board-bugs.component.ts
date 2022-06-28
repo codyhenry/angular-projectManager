@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardBugsComponent implements OnInit {
 
+  isLoadingResults: boolean = false;
+  
   constructor() { }
 
   ngOnInit(): void {

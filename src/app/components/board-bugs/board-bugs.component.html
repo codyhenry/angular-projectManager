@@ -1,1 +1,12 @@
 <p>board-bugs works!</p>
+<div>
+  <!--
+    table view
+  -->
+  <div class="loading-shade" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <div class="bug-table">
+    <app-bug-table></app-bug-table>
+  </div>
+</div>

@@ -12,7 +12,7 @@
 -->
 <mat-sidenav-container class="sidenav-container">
 
-  <mat-sidenav #sidenav mode="side" opened fxShow="true" fxHide.lt-md="true" class="sidenav">
+  <mat-sidenav #sidenav mode="side" opened fxShow="true" class="sidenav" [ngStyle.lt-md]="{'width.vw': 6}">
     <app-sidenav></app-sidenav> <!--Start-->
   </mat-sidenav> 
 

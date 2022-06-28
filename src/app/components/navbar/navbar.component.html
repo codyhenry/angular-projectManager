@@ -6,9 +6,17 @@
   <div fxShow="true" fxHide.lt-md="true">
     <a mat-button routerLink="#"><mat-icon>home</mat-icon> Home</a>
     <!--Make dynamic based on notifications should be component-->
-    <a mat-button routerLink="#"><mat-icon matBadge="0" matBadgeColor="warn" matBadgePosition="before">announcement</mat-icon> Notifications</a>
-    <a mat-button routerLink="#"><mat-icon>space_dashboard</mat-icon> New Board</a>
-    <a mat-button routerLink="#"><mat-icon>account_circle</mat-icon> Account Settings</a>
+    <a mat-button routerLink="#"><mat-icon matBadge="0" matBadgeColor="warn" matBadgePosition="before">notifications</mat-icon> Notifications</a>
+    <button mat-button [matMenuTriggerFor]="board"><mat-icon>library_books</mat-icon> Boards</button>
+    <mat-menu #board="matMenu">
+      <button mat-menu-item><mat-icon>library_add</mat-icon> New Board</button>
+      <button mat-menu-item><mat-icon>grid_view</mat-icon> My Boards</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="account"><mat-icon>account_circle</mat-icon>Account</button>
+    <mat-menu #account="matMenu">
+      <button mat-menu-item><mat-icon>logout</mat-icon>Logout</button>
+      <a mat-menu-item routerLink="#"><mat-icon>settings</mat-icon>Settings</a>
+    </mat-menu>
   </div>
 
   <!--show unless screen is greater than small or medium size-->
@@ -16,15 +24,12 @@
     <button mat-icon-button [matMenuTriggerFor]="mainMenu">
       <mat-icon aria-label="menu button">menu</mat-icon>
       <mat-menu #mainMenu="matMenu">
-        <a mat-menu-item routerLink="#">New Board</a>
-        <a mat-menu-item routerLink="#">Notifications</a>
+        <a mat-menu-item routerLink="#"><mat-icon matBadge="0" matBadgeColor="warn" matBadgePosition="before">notifications</mat-icon>Notifications</a>
+        <a mat-menu-item routerLink="#"><mat-icon>library_add</mat-icon>New Board</a>
+        <a mat-menu-item routerLink="#"><mat-icon>grid_view</mat-icon>My Boards</a>
         <!--TODO: Only show manage team if admin-->
         <a mat-menu-item routerLink="#"><mat-icon>manage_accounts</mat-icon>Manage Team</a>
-        <a mat-menu-item routerLink="#"><mat-icon>backup_table</mat-icon>My Projects</a>
         <a mat-menu-item routerLink="#"><mat-icon>pending_actions</mat-icon>My Tasks</a>
-        <button mat-menu-item [matMenuTriggerFor]="account">Account</button>
-      </mat-menu>
-      <mat-menu #account="matMenu">
         <button mat-menu-item><mat-icon>logout</mat-icon>Logout</button>
         <a mat-menu-item routerLink="#"><mat-icon>settings</mat-icon>Settings</a>
       </mat-menu>

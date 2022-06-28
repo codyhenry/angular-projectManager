@@ -7,7 +7,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatDividerModule } from '@angular/material/divider';
-import {MatListModule } from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
+import {MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -18,6 +24,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { WorkspaceComponent } from './components/workspace/workspace.component';
 import { BoardBugsComponent } from './components/board-bugs/board-bugs.component';
 import { BoardTasksComponent } from './components/board-tasks/board-tasks.component';
+import { BugTableComponent } from './components/bug-table/bug-table.component';
 
 
 @NgModule({
@@ -28,7 +35,8 @@ import { BoardTasksComponent } from './components/board-tasks/board-tasks.compon
     SidenavComponent,
     WorkspaceComponent,
     BoardBugsComponent,
-    BoardTasksComponent
+    BoardTasksComponent,
+    BugTableComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +49,14 @@ import { BoardTasksComponent } from './components/board-tasks/board-tasks.compon
     MatMenuModule,
     MatBadgeModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule,
+    MatProgressSpinnerModule,
+    MatSortModule,
+    MatPaginatorModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

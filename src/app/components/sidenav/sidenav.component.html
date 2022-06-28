@@ -1,5 +1,12 @@
 <!--TODO: get user role on load-->
-<h1>{{userRank}}</h1>
+<div fxShow="true" fxHide.lt-md="true">
+<h2>{{boardName}}</h2>
+<mat-list>
+  <mat-list-item>
+    <div mat-subheader>Role:</div>
+    <h3>{{userRole}}</h3>
+  </mat-list-item>
+</mat-list>
 
 <mat-divider></mat-divider>
 
@@ -9,10 +16,13 @@
     <a routerLink="#"><mat-icon>manage_accounts</mat-icon> Manage Team</a>
   </mat-list-item>
   <mat-list-item>
-    <a routerLink="#"><mat-icon>backup_table</mat-icon> My Projects</a>
+    <a routerLink="#"><mat-icon>pending_actions</mat-icon> Tasks</a>
   </mat-list-item>
   <mat-list-item>
-    <a routerLink="#"><mat-icon>pending_actions</mat-icon> My Tasks</a>
+    <a routerLink="#"><mat-icon>directions_run</mat-icon> Sprints</a>
+  </mat-list-item>
+  <mat-list-item>
+    <a routerLink="#"><mat-icon>analytics</mat-icon> Performance</a>
   </mat-list-item>
 </mat-list>
 
@@ -20,6 +30,51 @@
 
 <mat-list>
   <mat-list-item>
-    <a routerLink="#"><mat-icon>arrow_circle_left</mat-icon> Leave Board</a>
+    <a routerLink="#"><mat-icon>arrow_circle_left</mat-icon> Back</a>
   </mat-list-item>
 </mat-list>
+</div>
+
+<div fxShow="false" fxShow.lt-md="true">
+
+  <mat-list>
+    <mat-list-item>
+      <p [matMenuTriggerFor]="info"><mat-icon>table_chart</mat-icon></p>
+    </mat-list-item>
+    <mat-menu #info="matMenu">
+      <p>{{boardName}}</p>
+      <mat-list>
+        <mat-list-item>
+          <div mat-subheader>Role:</div>
+          <p>{{userRole}}<p>
+        </mat-list-item>
+      </mat-list>
+    </mat-menu>
+  </mat-list>
+
+  <mat-divider></mat-divider>
+
+  <mat-list>
+    <!--Visible based on role-->
+    <mat-list-item>
+      <a routerLink="#"><mat-icon>manage_accounts</mat-icon></a>
+    </mat-list-item>
+    <mat-list-item>
+      <a routerLink="#"><mat-icon>pending_actions</mat-icon></a>
+    </mat-list-item>
+    <mat-list-item>
+      <a routerLink="#"><mat-icon>directions_run</mat-icon></a>
+    </mat-list-item>
+    <mat-list-item>
+      <a routerLink="#"><mat-icon>analytics</mat-icon></a>
+    </mat-list-item>
+  </mat-list>
+
+  <mat-divider></mat-divider>
+
+  <mat-list>
+    <mat-list-item>
+      <a routerLink="#"><mat-icon>arrow_circle_left</mat-icon></a>
+    </mat-list-item>
+  </mat-list>
+</div>
