@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-board-tasks',
   templateUrl: './board-tasks.component.html',
@@ -11,5 +12,4 @@ export class BoardTasksComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

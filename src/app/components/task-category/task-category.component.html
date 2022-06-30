@@ -1,0 +1,25 @@
+
+<!--drag and drop lists-->
+<!--    
+  TODO:
+  sort by priority
+  get lists from backend
+-->
+
+<!--CONTAINER FOR ALL CATEGORIES. ALLOWS DRAG AND DROP-->
+<div cdkDropListGroup>
+
+  <div class="example-container" *ngFor="let task of tasks">
+    <h2>{{task.id}}</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="task.tasks"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of task.tasks" cdkDrag>{{item}}</div>
+    </div>
+
+  </div>
+
+</div>

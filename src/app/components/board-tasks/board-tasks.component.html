@@ -1,1 +1,22 @@
 <p>board-tasks works!</p>
+
+<!--
+  TODO:
+  Background cards for each category that are absolute sized
+  smaller cards for each task 
+  dragging smaller cards to background cards
+  dragging background cards to reorder them
+  smaller cards are buttons to view more info
+  smaller cards have priorities and have a indication for being completed
+  ability to hide completed tasks
+  background cards scroll when longer than screen
+  sideways scroll snaps to each background card 
+-->
+
+<div cdkDropListGroup class="task-board" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="20px">
+  <!--Replace with ngFor to display all task-category cards-->
+  <div class="task-table">
+    <app-task-category></app-task-category>
+  </div>
+  
+</div>

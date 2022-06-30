@@ -16,6 +16,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -25,6 +26,8 @@ import { WorkspaceComponent } from './components/workspace/workspace.component';
 import { BoardBugsComponent } from './components/board-bugs/board-bugs.component';
 import { BoardTasksComponent } from './components/board-tasks/board-tasks.component';
 import { BugTableComponent } from './components/bug-table/bug-table.component';
+import { TaskCategoryComponent } from './components/task-category/task-category.component';
+import { TaskItemComponent } from './components/task-item/task-item.component';
 
 
 @NgModule({
@@ -36,7 +39,9 @@ import { BugTableComponent } from './components/bug-table/bug-table.component';
     WorkspaceComponent,
     BoardBugsComponent,
     BoardTasksComponent,
-    BugTableComponent
+    BugTableComponent,
+    TaskCategoryComponent,
+    TaskItemComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +61,7 @@ import { BugTableComponent } from './components/bug-table/bug-table.component';
     MatProgressSpinnerModule,
     MatSortModule,
     MatPaginatorModule,
-    
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]
