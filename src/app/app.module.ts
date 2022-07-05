@@ -28,6 +28,8 @@ import { BoardTasksComponent } from './components/board-tasks/board-tasks.compon
 import { BugTableComponent } from './components/bug-table/bug-table.component';
 import { TaskCategoryComponent } from './components/task-category/task-category.component';
 import { TaskItemComponent } from './components/task-item/task-item.component';
+import { SidenavLgComponent } from './components/sidenav-lg/sidenav-lg.component';
+import { SidenavSmComponent } from './components/sidenav-sm/sidenav-sm.component';
 
 
 
@@ -43,6 +45,8 @@ import { TaskItemComponent } from './components/task-item/task-item.component';
     BugTableComponent,
     TaskCategoryComponent,
     TaskItemComponent,
+    SidenavLgComponent,
+    SidenavSmComponent,
  
   ],
   imports: [

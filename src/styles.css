@@ -8,5 +8,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .inline-icon { 
   vertical-align: top;
-  font-size: 18px !important;
+  font-size: 18px;
 }

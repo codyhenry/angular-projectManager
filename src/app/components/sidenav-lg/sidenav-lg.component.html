@@ -1,0 +1,32 @@
+<h2>{{boardName}}</h2>
+<mat-list>
+  <mat-list-item>
+    <div mat-subheader>Role:</div>
+    <h3>{{userRole}}</h3>
+  </mat-list-item>
+</mat-list>
+
+<mat-divider></mat-divider>
+
+<mat-list>
+  <!--Visible based on role-->
+  <mat-list-item >
+    <!--TODO: [ngStyle]="{'color': hasRoute('/')?'blue':'black'}"-->
+    <a routerLink="#"><mat-icon class="inline-icon">manage_accounts</mat-icon> Manage Team</a>
+  </mat-list-item>
+  <mat-list-item>
+    <a routerLink="#"><mat-icon class="inline-icon">pending_actions</mat-icon> Tasks</a>
+  </mat-list-item>
+  <mat-list-item>
+    <a routerLink="#"><mat-icon class="inline-icon">directions_run</mat-icon> Sprints</a>
+  </mat-list-item>
+  <mat-list-item>
+    <a routerLink="#"><mat-icon class="inline-icon">analytics</mat-icon> Performance</a>
+  </mat-list-item>
+
+  <mat-divider></mat-divider>
+
+  <mat-list-item>
+    <a routerLink="#"><mat-icon class="inline-icon">door_back</mat-icon> Leave Board</a>
+  </mat-list-item>
+</mat-list>

@@ -7,84 +7,18 @@
 -->
 <!--large screens sidenav-->
 <div fxShow="true" fxHide.lt-md="true">
-<h2>{{boardName}}</h2>
-<mat-list>
-  <mat-list-item>
-    <div mat-subheader>Role:</div>
-    <h3>{{userRole}}</h3>
-  </mat-list-item>
-</mat-list>
-
-<mat-divider></mat-divider>
-
-<mat-list>
-  <!--Visible based on role-->
-  <mat-list-item >
-    <!--TODO: [ngStyle]="{'color': hasRoute('/')?'blue':'black'}"-->
-    <a routerLink="#"><mat-icon class="inline-icon">manage_accounts</mat-icon> Manage Team</a>
-  </mat-list-item>
-  <mat-list-item>
-    <a routerLink="#"><mat-icon class="inline-icon">pending_actions</mat-icon> Tasks</a>
-  </mat-list-item>
-  <mat-list-item>
-    <a routerLink="#"><mat-icon class="inline-icon">directions_run</mat-icon> Sprints</a>
-  </mat-list-item>
-  <mat-list-item>
-    <a routerLink="#"><mat-icon class="inline-icon">analytics</mat-icon> Performance</a>
-  </mat-list-item>
-</mat-list>
-
-<mat-divider></mat-divider>
-
-<mat-list>
-  <mat-list-item>
-    <a routerLink="#"><mat-icon class="inline-icon">door_back</mat-icon> Leave Board</a>
-  </mat-list-item>
-</mat-list>
-
+  <app-sidenav-lg
+    boardName="{{boardName}}"
+    userRole="{{userRole}}"
+    >
+  </app-sidenav-lg>
 </div>
 
 <!--small screens sidenav-->
 <div fxShow="false" fxShow.lt-md="true">
-
-  <mat-list>
-    <mat-list-item>
-      <p [matMenuTriggerFor]="info"><mat-icon>table_chart</mat-icon></p>
-    </mat-list-item>
-    <mat-menu #info="matMenu">
-      <p>{{boardName}}</p>
-      <mat-list>
-        <mat-list-item>
-          <div mat-subheader>Role:</div>
-          <p>{{userRole}}<p>
-        </mat-list-item>
-      </mat-list>
-    </mat-menu>
-  </mat-list>
-
-  <mat-divider></mat-divider>
-
-  <mat-list>
-    <!--Visible based on role-->
-    <mat-list-item>
-      <a routerLink="#"><mat-icon>manage_accounts</mat-icon></a>
-    </mat-list-item>
-    <mat-list-item>
-      <a routerLink="#"><mat-icon>pending_actions</mat-icon></a>
-    </mat-list-item>
-    <mat-list-item>
-      <a routerLink="#"><mat-icon>directions_run</mat-icon></a>
-    </mat-list-item>
-    <mat-list-item>
-      <a routerLink="#"><mat-icon>analytics</mat-icon></a>
-    </mat-list-item>
-  </mat-list>
-
-  <mat-divider></mat-divider>
-
-  <mat-list>
-    <mat-list-item>
-      <a routerLink="#"><mat-icon>door_back</mat-icon></a>
-    </mat-list-item>
-  </mat-list>
+  <app-sidenav-sm
+    boardName="{{boardName}}"
+    userRole="{{userRole}}"
+    >
+  </app-sidenav-sm>
 </div>

@@ -1,0 +1,36 @@
+<mat-list>
+  <mat-list-item>
+    <p [matMenuTriggerFor]="info"><mat-icon class="inline-icon">table_chart</mat-icon></p>
+  </mat-list-item>
+  <mat-menu #info="matMenu">
+    <p>{{boardName}}</p>
+    <mat-list>
+      <mat-list-item>
+        <div mat-subheader>Role:</div>
+        <p>{{userRole}}<p>
+      </mat-list-item>
+    </mat-list>
+  </mat-menu>
+
+  <mat-divider></mat-divider>
+
+  <!--Visible based on role-->
+  <mat-list-item>
+    <a routerLink="#"><mat-icon class="inline-icon">manage_accounts</mat-icon></a>
+  </mat-list-item>
+  <mat-list-item>
+    <a routerLink="#"><mat-icon class="inline-icon">pending_actions</mat-icon></a>
+  </mat-list-item>
+  <mat-list-item>
+    <a routerLink="#"><mat-icon class="inline-icon">directions_run</mat-icon></a>
+  </mat-list-item>
+  <mat-list-item>
+    <a routerLink="#"><mat-icon class="inline-icon">analytics</mat-icon></a>
+  </mat-list-item>
+
+  <mat-divider></mat-divider>
+
+  <mat-list-item>
+    <a routerLink="#"><mat-icon class="inline-icon">door_back</mat-icon></a>
+  </mat-list-item>
+</mat-list>
