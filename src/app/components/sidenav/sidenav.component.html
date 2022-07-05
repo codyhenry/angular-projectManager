@@ -1,4 +1,11 @@
-<!--TODO: get user role on load-->
+<!--
+  TODO: 
+    get user role on load
+    get board name on load
+    link sidenav buttons to appropriate board pages
+    change text color of sidenav based on route
+-->
+<!--large screens sidenav-->
 <div fxShow="true" fxHide.lt-md="true">
 <h2>{{boardName}}</h2>
 <mat-list>
@@ -12,17 +19,18 @@
 
 <mat-list>
   <!--Visible based on role-->
-  <mat-list-item>
-    <a routerLink="#"><mat-icon>manage_accounts</mat-icon> Manage Team</a>
+  <mat-list-item >
+    <!--TODO: [ngStyle]="{'color': hasRoute('/')?'blue':'black'}"-->
+    <a routerLink="#"><mat-icon class="inline-icon">manage_accounts</mat-icon> Manage Team</a>
   </mat-list-item>
   <mat-list-item>
-    <a routerLink="#"><mat-icon>pending_actions</mat-icon> Tasks</a>
+    <a routerLink="#"><mat-icon class="inline-icon">pending_actions</mat-icon> Tasks</a>
   </mat-list-item>
   <mat-list-item>
-    <a routerLink="#"><mat-icon>directions_run</mat-icon> Sprints</a>
+    <a routerLink="#"><mat-icon class="inline-icon">directions_run</mat-icon> Sprints</a>
   </mat-list-item>
   <mat-list-item>
-    <a routerLink="#"><mat-icon>analytics</mat-icon> Performance</a>
+    <a routerLink="#"><mat-icon class="inline-icon">analytics</mat-icon> Performance</a>
   </mat-list-item>
 </mat-list>
 
@@ -30,11 +38,13 @@
 
 <mat-list>
   <mat-list-item>
-    <a routerLink="#"><mat-icon>arrow_circle_left</mat-icon> Back</a>
+    <a routerLink="#"><mat-icon class="inline-icon">door_back</mat-icon> Leave Board</a>
   </mat-list-item>
 </mat-list>
+
 </div>
 
+<!--small screens sidenav-->
 <div fxShow="false" fxShow.lt-md="true">
 
   <mat-list>
@@ -74,7 +84,7 @@
 
   <mat-list>
     <mat-list-item>
-      <a routerLink="#"><mat-icon>arrow_circle_left</mat-icon></a>
+      <a routerLink="#"><mat-icon>door_back</mat-icon></a>
     </mat-list-item>
   </mat-list>
 </div>

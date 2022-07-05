@@ -30,6 +30,7 @@ import { TaskCategoryComponent } from './components/task-category/task-category.
 import { TaskItemComponent } from './components/task-item/task-item.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import { TaskItemComponent } from './components/task-item/task-item.component';
     BoardTasksComponent,
     BugTableComponent,
     TaskCategoryComponent,
-    TaskItemComponent
+    TaskItemComponent,
+ 
   ],
   imports: [
     BrowserModule,
