@@ -27,6 +27,14 @@ export const TASKS: Category[] = [
       'Walk dog'
     ],
   },
+  {
+    id: "In Progress",
+    tasks: [
+      "Wash Clothes",
+      "Go to doctors",
+      "Get gasoline really long example card just to see what happens"
+    ],
+  }
 ]
 
 @Component({

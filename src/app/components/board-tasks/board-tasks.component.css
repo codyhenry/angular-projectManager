@@ -1,3 +1,10 @@
+.task-board{
+  height: 100%;
+}
+
 .task-table{
   margin: 20px;
+  overflow-x: auto !important;
+  white-space: nowrap;
+  height: calc(100vh - 100.33px);
 }

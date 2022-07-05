@@ -10,14 +10,20 @@
 <div cdkDropListGroup>
 
   <div class="example-container" *ngFor="let task of tasks">
-    <h2>{{task.id}}</h2>
+    <p>{{task.id}}</p>
 
     <div
       cdkDropList
       [cdkDropListData]="task.tasks"
       class="example-list"
       (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let item of task.tasks" cdkDrag>{{item}}</div>
+      <div 
+        class="example-box" 
+        *ngFor="let item of task.tasks" 
+        cdkDrag>{{item}} 
+        <mat-icon class="edit-icon">edit</mat-icon>
+      </div>
+      <p class="add-btn"><mat-icon class="inline-icon">add</mat-icon>Add new card</p>
     </div>
 
   </div>
