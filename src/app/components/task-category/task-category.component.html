@@ -4,13 +4,15 @@
   TODO:
   sort by priority
   get lists from backend
+  create right border color based on priority
+  make button functionality
 -->
 
 <!--CONTAINER FOR ALL CATEGORIES. ALLOWS DRAG AND DROP-->
 <div cdkDropListGroup>
 
   <div class="example-container" *ngFor="let task of tasks">
-    <p>{{task.id}}</p>
+    <p class="container-heading">{{task.id}}</p>
 
     <div
       cdkDropList

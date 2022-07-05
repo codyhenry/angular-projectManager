@@ -9,7 +9,7 @@
   border-radius: 8px;
 }
 
-.example-container p{
+.container-heading {
   margin-left: 15px;
   font-weight: bold;
 }
@@ -27,8 +27,8 @@
   font-size: 18px;
 }
 
-.add-btn{
-  color: rgba(0, 0, 0, 0.87);
+.add-btn {
+  color: rgba(0, 0, 0, 0.50);
 }
 
 .example-box {
