@@ -2,32 +2,128 @@
 <!--drag and drop lists-->
 <!--    
   TODO:
-  sort by priority
+  filter by priority
+  filter by name
   get lists from backend
-  create right border color based on priority
+  create right border color based on priority - done
   make button functionality
+  each card opens modal on click
+  each card has icon if there is an image attachment
+  add all flex functionality to cards for responsive - done
+  instead of name display profile picture, on hover tooltip name
+  hide completed tasks
+
+  
 -->
+<mat-form-field>
+  <mat-label><mat-icon>filter_alt</mat-icon>filter priority</mat-label>
+  <mat-select multiple [(value)]="selected" (closed)="applyFilter(selected)">
+    <mat-optgroup label="Priority">
+      <mat-option value="red" [ngStyle]="{color:'red'}">High</mat-option>
+      <mat-option value="gold" [ngStyle]="{color:'gold'}">Medium</mat-option>
+      <mat-option value="limegreen" [ngStyle]="{color:'limegreen'}">Low</mat-option>
+    </mat-optgroup>
+    <mat-optgroup label="Member">
+      <mat-option value="Cody">Cody</mat-option>
+      <mat-option value="Bob">Bob</mat-option>
+      <mat-option value="Jonathan">Jonathan</mat-option>
+    </mat-optgroup>
+  </mat-select>
+</mat-form-field>
+ <p>selected: {{selected}}</p>
 
-<!--CONTAINER FOR ALL CATEGORIES. ALLOWS DRAG AND DROP-->
-<div cdkDropListGroup>
+<div class="categories-list" fxLayout="row">
+  <!--CONTAINER FOR ALL CATEGORIES. ALLOWS DRAG AND DROP-->
+  <div cdkDropListGroup>
+  
+    <div class="example-container" *ngFor="let task of taskList">
+      <p class="container-heading">{{task.id}}</p>
+      
+      <div
+        cdkDropList
+        [cdkDropListData]="task.tasks"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
 
-  <div class="example-container" *ngFor="let task of tasks">
-    <p class="container-heading">{{task.id}}</p>
+        <div
+          class="example-box"
+          fxLayout="column"
+          fxLayoutAlign="space-between"
+          *ngFor="let item of task.tasks"
+          [ngStyle]="{'border-left-color':item.priority}"
+          cdkDrag
+          (click)="test(item.name)">
+    
+          <div class="card-text"
+            fxLayout.lt-sm="column-reverse"
+            fxLayoutAlign.lt-sm="end start">
+            <mat-icon 
+              class="inline-icon card-icons complete-icon" 
+              matTooltip="Task completed" 
+              matTooltipPosition="right">
+              task
+            </mat-icon>
+            <div class="card-title">{{item.name}}</div>
+            <span class="spacer" fxHide.lt-sm="true"></span>
+            <div
+             style="display:none" 
+             class="card-assigned">
+             {{item.assignedTo}}
+            </div>
+            <div 
+              class="dot" 
+              matTooltip="{{item.assignedTo}}" 
+              matTooltipPosition="left">
+            </div>
+            <mat-icon
+              class="edit-icon" 
+              matTooltip="Edit task" 
+              matTooltipPosition="left" 
+              aria-label="Edit task information">
+              edit
+            </mat-icon>
+          </div>
 
-    <div
-      cdkDropList
-      [cdkDropListData]="task.tasks"
-      class="example-list"
-      (cdkDropListDropped)="drop($event)">
-      <div 
-        class="example-box" 
-        *ngFor="let item of task.tasks" 
-        cdkDrag>{{item}} 
-        <mat-icon class="edit-icon">edit</mat-icon>
+          <div class="card-icons">
+            <mat-icon 
+              class="inline-icon"
+              [ngStyle]="{'display':item.attachment ==''?'none':null}"
+              matTooltip="This task has an attachment"
+              matTooltipPosition="right">
+              attachment
+            </mat-icon>
+            <mat-icon 
+              class="inline-icon"
+              [ngStyle]="{'display':item.description ==''?'none':null}"
+              matTooltip="This task has a description"
+              matTooltipPosition="right">
+              notes
+            </mat-icon>
+            <mat-icon
+             class="inline-icon"
+             [ngStyle]="{'display':item.attachment ==''?'none':null}"
+             matTooltip="This task is on a sprint"
+             matTooltipPosition="right">
+             timer
+            </mat-icon>
+          </div>
+            
+        </div>
+
+        <p class="add-btn">
+          <mat-icon class="inline-icon">add</mat-icon>
+          Add new card
+        </p>
+
       </div>
-      <p class="add-btn"><mat-icon class="inline-icon">add</mat-icon>Add new card</p>
     </div>
+  </div>
 
+  <div class="container-btn">
+    <p>
+      <mat-icon class="inline-icon">add</mat-icon>
+      Add another list
+    </p>
   </div>
 
 </div>

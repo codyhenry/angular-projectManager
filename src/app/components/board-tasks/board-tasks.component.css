@@ -3,7 +3,7 @@
 }
 
 .task-table{
-  margin: 20px;
+  padding: 20px 0 0 20px;
   overflow-x: auto !important;
   white-space: nowrap;
   height: calc(100vh - 100.33px);
