@@ -30,6 +30,8 @@ import { BoardTasksComponent } from './components/board-tasks/board-tasks.compon
 import { BugTableComponent } from './components/bug-table/bug-table.component';
 import { TaskCategoryComponent } from './components/task-category/task-category.component';
 import { TaskItemComponent } from './components/task-item/task-item.component';
+import { LoginComponent } from './components/login/login.component';
+import { LoginCardComponent } from './components/login-card/login-card.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { TaskItemComponent } from './components/task-item/task-item.component';
     BoardTasksComponent,
     BugTableComponent,
     TaskCategoryComponent,
-    TaskItemComponent
+    TaskItemComponent,
+    LoginComponent,
+    LoginCardComponent
   ],
   imports: [
     BrowserModule,
