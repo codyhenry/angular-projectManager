@@ -1,1 +1,96 @@
-<p>login-card works!</p>
+<!--
+  TODO:
+  fix deprecation with form builder 
+  finish validation 
+  finish css
+  finish login page
+  finish signup page
+  finish forogot password
+-->
+<div class="login-card">
+
+  <div class="signup-screen">
+    <mat-stepper orientation="vertical" #stepper>
+      <mat-step>
+        <form [formGroup]="emailForm">
+          <ng-template matStepLabel>Enter your email</ng-template>
+          <mat-form-field>
+            <mat-label>Email Address</mat-label>
+            <input 
+              matInput 
+              type="email" 
+              id="email" 
+              placeholder="ex: 'example@domain.com'" 
+              formControlName="email" 
+              [errorStateMatcher]="matcher">
+            <mat-error *ngIf="emailForm.get('email')!.hasError('email') && !emailForm.get('email')!.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailForm.get('email')!.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+          
+        </form>
+      </mat-step>
+      <mat-step>
+        <form [formGroup]="nameForm">
+          <ng-template matStepLabel>Fill out your name</ng-template>
+          <mat-form-field>
+            <mat-label>First Name</mat-label>
+            <input matInput id="firstName" placeholder="ex: 'John'" formControlName="firstName" [errorStateMatcher]="matcher">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input matInput id="lastName" placeholder="ex: 'Doe'" formControlName="lastName" [errorStateMatcher]="matcher">
+          </mat-form-field>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </form>
+      </mat-step>
+
+      <mat-step>
+        <form [formGroup]="passwordForm">
+          <ng-template matStepLabel>Create a Password</ng-template>
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput type="password" id="password" placeholder="Password" formControlName="password" [errorStateMatcher]="matcher">
+            <mat-error></mat-error>
+          </mat-form-field>
+
+      
+
+          <mat-form-field>
+            <mat-label>Confirm Password</mat-label>
+            <input 
+              matInput 
+              type="password"  
+              id="confirmPassword" 
+              placeholder="Passwords must match" 
+              formControlName="confirmPassword" 
+              [errorStateMatcher]="matcher">
+              <mat-error *ngIf="passwordForm.get('checkPasswords')!.hasError('')">
+                Passwords do not match
+              </mat-error>
+          </mat-form-field>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </form>
+      </mat-step>
+
+    </mat-stepper>
+    <button type="submit" mat-flat-button [disabled]="!nameForm.valid || !emailForm.valid || !passwordForm.valid">Submit</button>
+    <p style="display: block">Email Status: {{emailForm.hasError('email')}}</p>
+    <p style="display: block">Name Status: {{nameForm.status}}</p>
+    <p style="display: block">Password Status: {{passwordForm.status}}</p>
+  </div>
+  
+  <div class="login-screen">
+
+  </div>
+
+</div>

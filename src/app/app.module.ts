@@ -19,6 +19,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { DragDropModule} from '@angular/cdk/drag-drop';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
+import {MatStepperModule} from '@angular/material/stepper';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -70,6 +72,8 @@ import { LoginCardComponent } from './components/login-card/login-card.component
     DragDropModule,
     MatTooltipModule,
     MatSelectModule,
+    MatStepperModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
