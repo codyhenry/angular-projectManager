@@ -1,56 +1,58 @@
 import { Component } from '@angular/core';
-import {ErrorStateMatcher} from '@angular/material/core';
-import { FormControl, FormGroup, Validators, FormBuilder, FormGroupDirective, NgForm, AbstractControl } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
+import { Validators, FormBuilder, FormGroupDirective, NgForm, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+export class CrossFieldErrorMatcher implements ErrorStateMatcher {
+  isErrorState(control: AbstractControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const invalidCtrl = !!(control && control.invalid && control.parent!.dirty);
     const invalidParent = !!(control && control.parent && control.parent.invalid && control.parent.dirty);
 
-    return (invalidCtrl || invalidParent);
+    return (invalidCtrl || invalidParent && control.valid);
   }
 }
 
+export const passwordValidator: ValidatorFn = (form: AbstractControl): ValidationErrors | null => {
+  if(form.get('confirmCtrl')!.value === ""){
+    return null
+  }
+  const condition = form.get('passwordCtrl')!.value !== form.get('confirmCtrl')!.value;
 
-@Component({
+  return condition ? { passwordsDoNotMatch: true} : null;
+}
+
+ @Component({
   selector: 'app-login-card',
-  templateUrl: './login-card.component.html',
-  styleUrls: ['./login-card.component.css']
+  templateUrl: './login-card.component.html', 
+  styleUrls: ['./login-card.component.css'],
+  providers: [
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: {showError: true},
+    },
+  ],
 })
-export class LoginCardComponent{
+export class LoginCardComponent {
 
-  nameForm = this.fb.group({
-    firstName: ['',Validators.required],
-    lastName:  ['',Validators.required],
+  nameFormGroup = this._formBuilder.group({
+    firstNameCtrl: ['', Validators.required],
+    lastNameCtrl: ['', Validators.required],
+  });
+  emailFormGroup = this._formBuilder.group({
+    emailCtrl: ['', [Validators.required, Validators.email]],
+  });
+  passwordFormGroup = this._formBuilder.group({
+    passwordCtrl: ['', [Validators.required, Validators.minLength(8)]],
+    confirmCtrl: [''],
+    updateOn: blur
+  }, {
+    //screenshot this with error (remove 's' from validators)
+    validators: passwordValidator
   });
 
-  emailForm = this.fb.group({
-    email: ['', [Validators.required, Validators.email]]
-  });
-  
+  errorMatcher = new CrossFieldErrorMatcher();
 
-  passwordForm = this.fb.group({
-    password: ['', [Validators.required, Validators.minLength(8)]],
-    confirmPassword: ['', Validators.required]
-  },
-  { 
-    validator: this.checkPasswords 
-  });
-  
+  constructor(private _formBuilder: FormBuilder) {}
 
-  matcher = new ErrorStateMatcher();
-
-  constructor(private fb: FormBuilder) { }
-
-  checkPasswords(group: AbstractControl) { // here we have the 'passwords' group
-    let pass: string = group.get('password')!.value;
-    let confirmPass: string = group.get('confirmPassword')!.value;
-
-    return pass === confirmPass ? null : { notSame: true }
-  }
-
-  onSubmit(){
-    console.log(this.nameForm.value);
-  }
   
 }
