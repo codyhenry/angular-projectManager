@@ -6,110 +6,116 @@
   finish login page
   finish signup page - Done
   finish forogot password
+  hide signup page when login is clicked
+  angular animations
 -->
 <div class="login-card">
-  <div class="signup-screen">
-
-    <mat-stepper #stepper orientation="vertical">
-
-      <mat-step [stepControl]="nameFormGroup" errorMessage="Names are required.">
-        <form [formGroup]="nameFormGroup">
-          <ng-template matStepLabel>Fill out your name</ng-template>
-          <mat-form-field>
-            <mat-label>First Name</mat-label>
-            <input
-              matInput 
-              placeholder="Ex. John" 
-              formControlName="firstNameCtrl" 
-              required>
-            <mat-error 
-              *ngIf="nameFormGroup.get('firstNameCtrl')!.hasError('required')">
-              First Name is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Last Name</mat-label>
-            <input
-              matInput 
-              placeholder="Ex. Doe" 
-              formControlName="lastNameCtrl" 
-              required>
-            <mat-error 
-              *ngIf="nameFormGroup.get('firstNameCtrl')!.hasError('required')">
-              Last Name is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperNext>Next</button>
-          </div>
-        </form>
-      </mat-step>
-
-      <mat-step [stepControl]="emailFormGroup" errorMessage="Enter a valid email.">
-        <form [formGroup]="emailFormGroup">
-          <ng-template matStepLabel>Fill out your email address</ng-template>
-          <mat-form-field>
-            <mat-label>Email Address</mat-label>
-            <input 
-              matInput 
-              placeholder="Ex: example@domain.com" 
-              formControlName="emailCtrl"
-              required>
-            <mat-error 
-              *ngIf="emailFormGroup.get('emailCtrl')!.hasError('email') 
-              && !emailFormGroup.get('emailCtrl')!.hasError('required')">
-              Please enter a valid email address
-            </mat-error>
-            <mat-error 
-              *ngIf="emailFormGroup.get('emailCtrl')!.hasError('required')">
-              Email is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
-          </div>
-        </form>
-      </mat-step>
-
-      <mat-step [stepControl]="passwordFormGroup" errorMessage="Enter a valid password.">
-        <form [formGroup]="passwordFormGroup">
-          <ng-template matStepLabel>Create a password</ng-template>
-          <mat-form-field>
-            <mat-label>Password</mat-label>
-            <input 
-              matInput 
-              placeholder="Must be at least 8 characters" 
-              formControlName="passwordCtrl" 
-              required>
-            <mat-error 
-              *ngIf="passwordFormGroup.get('passwordCtrl')!.hasError('minlength') 
-              && !passwordFormGroup.get('passwordCtrl')!.hasError('required')">
-              Password is too <strong>weak</strong>
-            </mat-error>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Confirm Password</mat-label>
-            <input 
-              matInput 
-              placeholder="Passwords must match" 
-              formControlName="confirmCtrl" 
-              required
-              [errorStateMatcher]="errorMatcher">
-            <mat-error 
-              *ngIf="passwordFormGroup.hasError('passwordsDoNotMatch')">
-              Passwords do not match!
-            </mat-error>
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
-            <button mat-flat-button color="primary" [disabled]="!nameFormGroup.valid || !emailFormGroup.valid || !passwordFormGroup.valid">Submit</button>
-          </div>
-        </form>
-      </mat-step>
+  <div class="signup-screen" fxLayout="column" fxLayoutAlign="space-around">
+    
+    <div class="signup-form">
+      <h2>Register</h2>
+      <mat-stepper #stepper orientation="vertical" >
       
-    </mat-stepper>
+        <mat-step [stepControl]="nameFormGroup" errorMessage="Names are required.">
+          <form [formGroup]="nameFormGroup">
+            <ng-template matStepLabel>Fill out your name</ng-template>
+            <mat-form-field>
+              <mat-label>First Name</mat-label>
+              <input
+                matInput
+                placeholder="Ex. John"
+                formControlName="firstNameCtrl"
+                required>
+              <mat-error
+                *ngIf="nameFormGroup.get('firstNameCtrl')!.hasError('required')">
+                First Name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Last Name</mat-label>
+              <input
+                matInput
+                placeholder="Ex. Doe"
+                formControlName="lastNameCtrl"
+                required>
+              <mat-error
+                *ngIf="nameFormGroup.get('firstNameCtrl')!.hasError('required')">
+                Last Name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="emailFormGroup" errorMessage="Enter a valid email.">
+          <form [formGroup]="emailFormGroup">
+            <ng-template matStepLabel>Fill out your email address</ng-template>
+            <mat-form-field>
+              <mat-label>Email Address</mat-label>
+              <input
+                matInput
+                placeholder="Ex: example@domain.com"
+                formControlName="emailCtrl"
+                required>
+              <mat-error
+                *ngIf="emailFormGroup.get('emailCtrl')!.hasError('email')
+                && !emailFormGroup.get('emailCtrl')!.hasError('required')">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error
+                *ngIf="emailFormGroup.get('emailCtrl')!.hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="passwordFormGroup" errorMessage="Enter a valid password.">
+          <form [formGroup]="passwordFormGroup">
+            <ng-template matStepLabel>Create a password</ng-template>
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input
+                matInput
+                placeholder="Must be at least 8 characters"
+                formControlName="passwordCtrl"
+                required>
+              <mat-error
+                *ngIf="passwordFormGroup.get('passwordCtrl')!.hasError('minlength')
+                && !passwordFormGroup.get('passwordCtrl')!.hasError('required')">
+                Password is too <strong>weak</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Confirm Password</mat-label>
+              <input
+                matInput
+                placeholder="Passwords must match"
+                formControlName="confirmCtrl"
+                required
+                [errorStateMatcher]="errorMatcher">
+              <mat-error
+                *ngIf="passwordFormGroup.hasError('passwordsDoNotMatch')">
+                Passwords do not match!
+              </mat-error>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button (click)="stepper.reset()">Reset</button>
+              <button mat-flat-button color="primary" [disabled]="!nameFormGroup.valid || !emailFormGroup.valid || !passwordFormGroup.valid">Submit</button>
+            </div>
+          </form>
+        </mat-step>
+      
+      </mat-stepper>
+    </div>
+    <div class="login-form">
+      <p>Already a user?<span><button mat-button><strong>Log in</strong></button></span></p> 
+    </div>
+      
   </div>
-  <div class="login-screen"></div>
 </div>

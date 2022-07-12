@@ -1,18 +1,22 @@
+
 .login-card{
-  width: 28vw;
-  height: 40vh;
-  max-width: 350px;
-	max-height: 500px;
-  min-width: 210px;
-  min-height: 300px;
-	background: #eee;
+  width: 40vw;
+  height: 600px;
+  max-width: 400px;
+  min-width: 300px;
 	overflow: hidden;
-	border-radius: 10px;
+	border-radius: 5px;
 	box-shadow: 5px 20px 50px #000;
 }
 
 .signup-screen{
-  position: relative;
-  width: 100%;
   height: 100%;
+  width: 100%;
+  background: skyblue;
+  text-align: center;
 }
+
+.signup-form{
+  max-height: 500px;
+}
+
